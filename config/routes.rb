@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :likes
   resources :comments
   resources :posts
-  post '/friendship/:id', to: 'friendship#request'
+  post '/friendships/:friend_id', to: 'friendships#create', as: 'friendships'
   post '/login', to: 'session#login'
   post '/sign_up', to: 'register#sign_up'
   resources :users, except: [:create]

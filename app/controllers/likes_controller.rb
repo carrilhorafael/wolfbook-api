@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
   before_action :set_like, only: [:show, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /likes
   def index

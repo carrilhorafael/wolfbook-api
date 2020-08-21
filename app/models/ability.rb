@@ -7,8 +7,9 @@ class Ability
     if user.present?
       can [:create, :read], [Post, Comment]
       can [:update, :destroy], [Post, Comment], :user_id => user.id
+      can :create, Friendship, :user_id => user.id
 
-      can :manage, user
+      can :manage, User
     end
     # Define abilities for the passed in user here. For example:
     #
