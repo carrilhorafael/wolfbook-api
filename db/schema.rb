@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_21_122510) do
+ActiveRecord::Schema.define(version: 2020_08_21_124011) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 2020_08_21_122510) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.string "liked_type"
-    t.integer "liked_id"
+    t.integer "user_id"
+    t.string "likable_type"
+    t.integer "likable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.index ["liked_type", "liked_id"], name: "index_likes_on_liked_type_and_liked_id"
+    t.index ["likable_type", "likable_id"], name: "index_likes_on_likable_type_and_likable_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 

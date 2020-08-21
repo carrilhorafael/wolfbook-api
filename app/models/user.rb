@@ -8,6 +8,7 @@ class User < ApplicationRecord
     }  
     validates :name, :email, :gender, :birthdate, presence: true
     validates :email, uniqueness: true
-    
-    
+    def age 
+        ((Date.today - birthdate.to_date)/365.25).to_i
+    end
 end
