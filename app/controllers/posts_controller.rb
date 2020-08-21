@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-
     render json: @posts
   end
 
@@ -16,7 +15,8 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new({:content => params[:content], :user_id => current_user.id})
+    new_params = post_params.merge({:user_id=>current_user.id})
+    @post = Post.new(new_params)
 
 
     if @post.save
