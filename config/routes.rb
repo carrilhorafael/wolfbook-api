@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :likes
   resources :comments
   resources :posts
   post 'login', to: 'session#login'
