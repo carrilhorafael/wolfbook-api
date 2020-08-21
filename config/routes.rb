@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :comments
   resources :posts
   post '/friendships/:friend_id', to: 'friendships#create', as: 'friendships'
+  get '/friendships', to: 'friendships#index'
+
   post '/login', to: 'session#login'
   post '/sign_up', to: 'register#sign_up'
   resources :users, except: [:create]

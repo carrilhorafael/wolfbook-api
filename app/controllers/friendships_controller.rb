@@ -3,7 +3,7 @@ class FriendshipsController < ApplicationController
     load_and_authorize_resource
 
 
-    # GET /likes
+    # GET /friendships
     def index
         @friends = Friendship.where(user_id: current_user.id, accept: true)
         
@@ -11,7 +11,7 @@ class FriendshipsController < ApplicationController
     end
 
     
-    # POST /likes
+    # POST /friendships
     def create
         friend_id = params[:friend_id]
         @friends = Friendship.new({friend_id: friend_id})
