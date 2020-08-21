@@ -2,10 +2,12 @@
 
 class Ability
   include CanCan::Ability
-
+  
   def initialize(user)
-    def user
-      can :manage, :all
+    if user.present?
+      can :create, Post
+      can [:update, :destroy], Post, :user_id => user.id
+      can :manage, user
     end
     # Define abilities for the passed in user here. For example:
     #

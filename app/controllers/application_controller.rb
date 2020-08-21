@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
     rescue_from CanCan::AccessDenied do |exception|
-        render json: { erro: "Permissão Negada"}
+        render json: { erro: "Permissão Negada"}, status: 401
     
     end
     def current_user
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::API
             
             render json: {status: "você está logado", user: current_user }
         else
-            render json: {status: "você está deslogado"}
+            render json: {status: "você está deslogado"}, status: 401
             
         end
     end
