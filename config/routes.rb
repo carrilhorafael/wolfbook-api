@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :comments
   resources :posts
-  post 'login', to: 'session#login'
+  post '/friendship/:id', to: 'friendship#request'
+  post '/login', to: 'session#login'
   post '/sign_up', to: 'register#sign_up'
   resources :users, except: [:create]
   get '/validate_user', to: 'application#validate_user'
