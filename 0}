@@ -1,2 +1,0 @@
-      invoke  active_record
-      create    db/migrate/20200821043038_add_like_counter_to_comment.rb
