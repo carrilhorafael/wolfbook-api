@@ -26,4 +26,7 @@ class Friendship < ApplicationRecord
         errors.add(:friendship, "Você já pediu a amizade desse usuário")
       end
     end
+    def friend
+      User.find_by(id: friend_id)
+    end
 end
