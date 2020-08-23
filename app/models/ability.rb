@@ -5,7 +5,7 @@ class Ability
   
   def initialize(user)
     if user.present?
-      can [:create, :read], [Post, Comment]
+      can [:create, :read], [Post, Comment, Like]
       can [:update, :destroy], [Post, Comment], :user_id => user.id
       can [:create, :read], Friendship, :user_id => user.id
 
