@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
 
     # GET /friendships
     def index
-        @friends = Friendship.find_by(user_id: current_user.id)
+        @friends = Friendship.find(user_id: current_user.id)
         
         render json: @friends
     end
