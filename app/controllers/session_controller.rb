@@ -4,7 +4,7 @@ class SessionController < ApplicationController
     @user = @user&.authenticate(params[:user][:password])
     if @user
       token = JsonWebToken.encode(user_id: @user.id)
-      render json: {token: token, user: @user}
+      render json: {token: token, user: UserSerializer.new(@user)}
     else
       render json: {error: 'Unauthorized'}, status: :unautorized
     end
