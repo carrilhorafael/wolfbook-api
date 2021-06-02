@@ -11,6 +11,11 @@ class User < ApplicationRecord
         "M": 0,
         "F": 1
     }  
+    enum role:{
+        "Admin": 1,
+        "Moderador": 2,
+        "Padrão": 3
+    }
     validates :name, :email, :gender, :birthdate, :password, :password_confirmation, presence: true
     validates :email, uniqueness: true
     def age 

@@ -5,6 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(name:"Rafael Carrilho", email:"rafael.carrilho@injunior.com.br", gender:"M", birthdate:"16/02/2000", password:"123456", password_confirmation:"123456")
-User.create(name:"Arthur Nakao", email:"arthur.nakao@injunior.com.br", gender:"M", birthdate:"16/02/2000", password:"123456", password_confirmation:"123456")
-User.create(name:"Thiago Andrade", email:"thiago.andrade@injunior.com.br", gender:"M", birthdate:"16/02/2000", password:"123456", password_confirmation:"123456")
+User.create(name:"Rafael Carrilho", role: 1, email:"rafael@email.com", gender:"M", birthdate:"16/02/2000", password:"123456", password_confirmation:"123456")
+User.create(name:"Arthur Nakao", role: 1, email:"arthur@email.com", gender:"M", birthdate:"16/02/2000", password:"123456", password_confirmation:"123456")
+User.create(name:"Rafael Kanazawa", role: 2, email:"kana@email.com", gender:"M", birthdate:"16/02/2000", password:"123456", password_confirmation:"123456")
+User.create(name:"Mairon Azevedo", role: 2, email:"mairon@email.com", gender:"M", birthdate:"16/02/2000", password:"123456", password_confirmation:"123456")
+User.create(name:"Thiago Andrade", role: 2, email:"thiago@email.com", gender:"M", birthdate:"16/02/2000", password:"123456", password_confirmation:"123456")
+
+require 'faker'
+20.times.each do |t|
+    User.create(name: Faker::Name.name, role: 3, email: "user#{t}@email.com", gender:"M", birthdate:"16/02/2000", password:"123456", password_confirmation:"123456")
+end
