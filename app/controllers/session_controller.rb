@@ -6,7 +6,7 @@ class SessionController < ApplicationController
       token = JsonWebToken.encode(user_id: @user.id)
       render json: {token: token, user: UserSerializer.new(@user)}
     else
-      render json: {error: 'Unauthorized'}, status: :unautorized
+      render json: {error: 'Falha no login'}, status: 401
     end
   end
 end
