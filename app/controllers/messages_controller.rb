@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /messages
   def index

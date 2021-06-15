@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   before_action :set_conversation, only: [:show, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /conversations
   def index
