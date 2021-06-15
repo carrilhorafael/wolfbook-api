@@ -21,7 +21,7 @@ class ConversationsController < ApplicationController
     else
       conv_params= {
         speaker1_id: current_user.id,
-        speaker2_id: conversation_params[:speaker_id]
+        speaker2_id: params[:speaker_id]
       }
       @conversation = Conversation.new(conv_params)
 
