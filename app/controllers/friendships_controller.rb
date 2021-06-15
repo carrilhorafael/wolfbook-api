@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
 
     # GET /friendships
     def index
-        @friends = current_user.friendships.where( accept: true)
+        @friends = current_user.friendships.where( accept: true).includes(:friend)
         
         render json: @friends
     end
