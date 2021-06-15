@@ -7,7 +7,8 @@ class Ability
     if user.present?
       can [:create, :read], [Post, Comment, Like]
       can [:update, :destroy], [Post, Comment], :user_id => user.id
-      can [:create, :not_friends, :read], Friendship, :user_id => user.id
+      can :not_friends, Friendship
+      can [:create,  :read], Friendship, :user_id => user.id
       can [:create, :destroy, :read], Conversation, :speaker1_id => user.id
       can [:read, :destroy], Conversation, :speaker2_id => user.id
       can [:create, :read, :destroy], Message, :sender_id => user.id
