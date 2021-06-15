@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
-    @message = Message.new(message_params)
+    @message = Message.new(message_params.merge(sender_id: current_user.id))
 
     if @message.save
       render json: @message, status: :created, location: @message
@@ -46,6 +46,6 @@ class MessagesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def message_params
-      params.require(:message).permit(:content, :conversation_id, :sender_id)
+      params.require(:message).permit(:content, :conversation_id)
     end
 end
