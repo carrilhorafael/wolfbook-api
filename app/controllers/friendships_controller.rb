@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
     def not_friends
         @users = []
         User.find_each do |t|
-            unless current_user.friends.includes?(t) || current_user == t
+            unless current_user.friends.include?(t) || current_user == t
                 @users.push(t)
             end
         end
