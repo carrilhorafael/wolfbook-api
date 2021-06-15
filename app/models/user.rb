@@ -1,10 +1,11 @@
 class User < ApplicationRecord
-    has_many :posts
-    has_many :comments
-    has_many :likes
-    has_many :friendships
+    has_many :posts, dependent: :destroy
+    has_many :comments, dependent: :destroy
+    has_many :likes, dependent: :destroy
+    has_many :friendships, dependent: :destroy
     has_many :friends, through: :friendships
-
+    has_and_belongs_to_many :conversations, dependent: :destroy
+    has_many :messages, dependent: :destroy
     
     has_secure_password
     enum gender:{

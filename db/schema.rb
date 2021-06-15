@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_151851) do
+ActiveRecord::Schema.define(version: 2021_06_15_123758) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2021_06_02_151851) do
     t.integer "like_counter", default: 0
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "speaker1_id"
+    t.integer "speaker2_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["speaker1_id"], name: "index_conversations_on_speaker1_id"
+    t.index ["speaker2_id"], name: "index_conversations_on_speaker2_id"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -40,6 +49,16 @@ ActiveRecord::Schema.define(version: 2021_06_02_151851) do
     t.datetime "updated_at", null: false
     t.index ["likable_type", "likable_id"], name: "index_likes_on_likable_type_and_likable_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.integer "conversation_id"
+    t.integer "sender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
   create_table "posts", force: :cascade do |t|
