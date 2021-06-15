@@ -42,9 +42,9 @@ class ConversationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def already_conversation
-      @conversation = Conversation.find_by(speaker1_id: current_user.id, speaker2_id: conversation_params[:speaker_id])
+      @conversation = Conversation.find_by(speaker1_id: current_user.id, speaker2_id: params[:speaker_id])
       if @conversation.nil?
-        @conversation = Conversation.find_by(speaker2_id: current_user.id, speaker1_id: conversation_params[:speaker_id])
+        @conversation = Conversation.find_by(speaker2_id: current_user.id, speaker1_id: params[:speaker_id])
       end
       return @conversation.present?
         
