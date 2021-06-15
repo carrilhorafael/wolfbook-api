@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :likes
   resources :comments
   resources :posts
+  get '/friendships/not', to:"friendships#not_friends"
   post '/friendships/:friend_id', to: 'friendships#create', as: 'friendships'
   get '/friendships', to: 'friendships#index'
 

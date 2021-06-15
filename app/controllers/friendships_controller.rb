@@ -9,7 +9,15 @@ class FriendshipsController < ApplicationController
         
         render json: @friends
     end
-
+    def not_friends
+        @users = []
+        User.find_each do |t|
+            unless current_user.friends.includes?(t) || current_user == t
+                @users.push(t)
+            end
+        end
+        render json: @users, each_serializer: UserSerializer
+    end
     
     # POST /friendships
     def create
