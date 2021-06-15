@@ -1,8 +1,8 @@
 class Friendship < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: "User"
-  validate :cannot_be_friend_of_himself
-  validate :cannot_ask_two_times
+  validate :cannot_be_friend_of_himself, on: :create
+  validate :cannot_ask_two_times, on: :create
   after_create :update_accept
   
   private
