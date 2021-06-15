@@ -55,6 +55,9 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "facebook-db_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.web_socket_server_url = "wss://wolfbook.herokuapp.com/cable"
+  config.action_cable.allowed_request_origins = ["http://localhost:3000", "http://localhost:3001"]
+ 
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
